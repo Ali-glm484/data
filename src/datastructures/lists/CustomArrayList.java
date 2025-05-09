@@ -30,7 +30,7 @@ public class CustomArrayList<T> implements List<T> {
     }
 
     @Override
-    public boolean add(Object t) {//********************************
+    public boolean add(Object t) {
         if (t == null)
             throw new NullPointerException();
 

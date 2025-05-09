@@ -45,7 +45,7 @@ public class Library {
         // If the book wasn't available, add member to the waitlist
         } else {
             System.out.println("The requested book with code " + isbn + " is not available in the library.");
-            bookManager.addToWaitlist(isbn, memberId);
+            bookManager.addToWaitlist(isbn, memberManager.getMember(memberId));
         }
     }
 

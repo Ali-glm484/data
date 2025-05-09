@@ -28,7 +28,7 @@ public class CustomLinkedList<T> implements LinkedList<T>{
     }
 
     @Override
-    public boolean add(Object t) {//*****************************
+    public boolean add(Object t) {
         if (t == null)
             throw new NullPointerException();
 
@@ -105,7 +105,7 @@ public class CustomLinkedList<T> implements LinkedList<T>{
     }
 
     @Override
-    public T set(int index, Object element) { //******************************
+    public T set(int index, Object element) {
         if (index < 0 || index > size)
             throw new IndexOutOfBoundsException();
 
@@ -181,11 +181,16 @@ public class CustomLinkedList<T> implements LinkedList<T>{
             throw new NoSuchElementException();
 
         T data = head.data;
-        head = head.next;
-        head.prev = null;
+
+        if (head == tail) {
+            head = tail = null;
+
+        } else {
+            head = head.next;
+            head.prev = null;
+        }
 
         size--;
-
         return data;
     }
 
@@ -195,11 +200,16 @@ public class CustomLinkedList<T> implements LinkedList<T>{
             throw new NoSuchElementException();
 
         T data = tail.data;
-        tail = tail.prev;
-        tail.next = null;
+
+        if (head == tail) {
+            head = tail = null;
+
+        } else {
+            tail = tail.prev;
+            tail.next = null;
+        }
 
         size--;
-
         return data;
     }
 
